@@ -28,7 +28,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="260" height="91.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="questionOneLabel" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBW-QQ-woc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="230" height="91.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="210" height="91.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -40,11 +40,8 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lC1-gh-dL2">
-                                                        <rect key="frame" x="230" y="0.0" width="30" height="91.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="RCO-EK-VSR"/>
-                                                        </constraints>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lC1-gh-dL2">
+                                                        <rect key="frame" x="210" y="0.0" width="50" height="91.5"/>
                                                         <state key="normal" title="questionOneDownButton" image="down_full"/>
                                                     </button>
                                                 </subviews>
@@ -53,7 +50,7 @@
                                                 <rect key="frame" x="0.0" y="96.5" width="260" height="91.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="questionTwoLabel" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAF-u3-gym">
-                                                        <rect key="frame" x="0.0" y="0.0" width="230" height="91.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="210" height="91.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -61,19 +58,19 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ftw-HY-fVC">
-                                                        <rect key="frame" x="230" y="0.0" width="30" height="91.5"/>
+                                                        <rect key="frame" x="210" y="0.0" width="50" height="91.5"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUB-cb-pIz">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="46"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="46"/>
                                                                 <state key="normal" title="questionTwoUpButton" image="up_half"/>
                                                             </button>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzZ-Ji-Xzq">
-                                                                <rect key="frame" x="0.0" y="46" width="30" height="45.5"/>
+                                                                <rect key="frame" x="0.0" y="46" width="50" height="45.5"/>
                                                                 <state key="normal" title="questionTwoDownButton" image="down_half"/>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="M8F-56-08L"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="M8F-56-08L"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
@@ -82,7 +79,7 @@
                                                 <rect key="frame" x="0.0" y="193" width="260" height="91.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="questionThreeLabel" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0l-HW-3Ni">
-                                                        <rect key="frame" x="0.0" y="0.0" width="230" height="91.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="210" height="91.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -90,28 +87,28 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lFX-4p-xgO">
-                                                        <rect key="frame" x="230" y="0.0" width="30" height="91.5"/>
+                                                        <rect key="frame" x="210" y="0.0" width="50" height="91.5"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jO8-5M-bd5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="46"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="46"/>
                                                                 <state key="normal" title="questionThreeUpButton" image="up_half"/>
                                                             </button>
                                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zoz-QJ-A1J">
-                                                                <rect key="frame" x="0.0" y="46" width="30" height="45.5"/>
+                                                                <rect key="frame" x="0.0" y="46" width="50" height="45.5"/>
                                                                 <state key="normal" title="questionThreeDownButton" image="down_half"/>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="Bmq-Lh-GJ1"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="Bmq-Lh-GJ1"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBB-LX-gKe">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="mBB-LX-gKe">
                                                 <rect key="frame" x="0.0" y="289.5" width="260" height="91.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="questionFourLabel" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRp-cu-f5w">
-                                                        <rect key="frame" x="0.0" y="0.0" width="230" height="91.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="210" height="91.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -119,15 +116,22 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qs-5A-9qR">
-                                                        <rect key="frame" x="230" y="0.0" width="30" height="91.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="LrB-kD-GLc"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="210" y="0.0" width="50" height="91.5"/>
                                                         <state key="normal" title="questionFourUpButton" image="up_full"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="H1F-Iy-Xr4" firstAttribute="leading" secondItem="mdv-a5-1cb" secondAttribute="leading" id="7qC-3h-oUM"/>
+                                            <constraint firstItem="6qs-5A-9qR" firstAttribute="leading" secondItem="lFX-4p-xgO" secondAttribute="leading" id="8dQ-Om-mMg"/>
+                                            <constraint firstItem="QQS-8b-ENd" firstAttribute="leading" secondItem="mdv-a5-1cb" secondAttribute="leading" id="O1i-uJ-s4p"/>
+                                            <constraint firstItem="mBB-LX-gKe" firstAttribute="leading" secondItem="mdv-a5-1cb" secondAttribute="leading" id="QKv-i9-QDR"/>
+                                            <constraint firstItem="QQS-8b-ENd" firstAttribute="trailing" secondItem="mdv-a5-1cb" secondAttribute="trailing" id="dbN-zM-iNM"/>
+                                            <constraint firstItem="H1F-Iy-Xr4" firstAttribute="trailing" secondItem="mdv-a5-1cb" secondAttribute="trailing" id="iJS-xr-gdk"/>
+                                            <constraint firstItem="mBB-LX-gKe" firstAttribute="trailing" secondItem="mdv-a5-1cb" secondAttribute="trailing" id="jne-oQ-Ode"/>
+                                            <constraint firstItem="Ftw-HY-fVC" firstAttribute="leading" secondItem="lC1-gh-dL2" secondAttribute="leading" id="tHW-P9-RLe"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gvr-1m-zFI">
                                         <rect key="frame" x="62" y="418" width="136.5" height="70"/>
