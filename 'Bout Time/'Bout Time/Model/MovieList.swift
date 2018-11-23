@@ -8,9 +8,16 @@
 
 import Foundation
 
+struct Movie {
+    let movieName: String
+    let yearMovieWasReleased: Int
+}
+
 class MovieList {
     
-    var movieList: [Movie] = [
+    var movieArrayIndex: Int = 0
+    
+    var movieArray: [Movie] = [
         Movie(movieName: "Hercules in New York", yearMovieWasReleased: 1969),
         Movie(movieName: "The Long Goodbye", yearMovieWasReleased: 1973),
         Movie(movieName: "Stay Hungry", yearMovieWasReleased: 1976),
@@ -43,7 +50,7 @@ class MovieList {
         Movie(movieName: "Viy 2: Journey to China", yearMovieWasReleased: 2019)]
     
     func shuffleMovieList () {
-        movieList.shuffle()
+        movieArray.shuffle()
     }
     
 
