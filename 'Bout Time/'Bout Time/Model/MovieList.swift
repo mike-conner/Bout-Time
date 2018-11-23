@@ -9,8 +9,8 @@
 import Foundation
 
 struct Movie {
-    let movieName: String
-    let yearMovieWasReleased: Int
+    var movieName: String
+    var yearMovieWasReleased: Int
 }
 
 class MovieList {

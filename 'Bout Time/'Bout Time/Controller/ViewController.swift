@@ -29,6 +29,33 @@ class ViewController: UIViewController {
         updateMovieRound()
     }
 
+    @IBAction func changeMovieLabelLocation(_ sender: UIButton) {
+        let button = sender as UIButton
+        
+        switch button.tag {
+        case 1, 2:
+            print(movieList.movieArray)
+            movieList.movieArray[0...1] = [movieList.movieArray[1], movieList.movieArray[0]]
+            questionOneLabel.text = movieList.movieArray[0].movieName
+            questionTwoLabel.text = movieList.movieArray[1].movieName
+        case 3, 4:
+            print(movieList.movieArray)
+            movieList.movieArray[1...2] = [movieList.movieArray[2], movieList.movieArray[1]]
+            questionTwoLabel.text = movieList.movieArray[1].movieName
+            questionThreeLabel.text = movieList.movieArray[2].movieName
+        case 5, 6:
+            print(movieList.movieArray)
+            movieList.movieArray[2...3] = [movieList.movieArray[3], movieList.movieArray[2]]
+            questionThreeLabel.text = movieList.movieArray[2].movieName
+            questionFourLabel.text = movieList.movieArray[3].movieName
+        default:
+            print("logic error")
+            return
+        }
+        
+    }
+    
+    
     func curveLabelCorners() {
         questionOneLabel.clipsToBounds = true
         questionOneLabel.layer.cornerRadius = 3

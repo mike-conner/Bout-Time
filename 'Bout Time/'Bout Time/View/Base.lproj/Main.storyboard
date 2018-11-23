@@ -43,6 +43,9 @@
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lC1-gh-dL2">
                                                         <rect key="frame" x="210" y="0.0" width="50" height="89"/>
                                                         <state key="normal" title="questionOneDownButton" image="down_full"/>
+                                                        <connections>
+                                                            <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Swr-FQ-NSl"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -63,10 +66,16 @@
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUB-cb-pIz">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="44.5"/>
                                                                 <state key="normal" title="questionTwoUpButton" image="up_half"/>
+                                                                <connections>
+                                                                    <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8cu-Ef-mKn"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzZ-Ji-Xzq">
                                                                 <rect key="frame" x="0.0" y="44.5" width="50" height="44.5"/>
                                                                 <state key="normal" title="questionTwoDownButton" image="down_half"/>
+                                                                <connections>
+                                                                    <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KB2-FK-VBP"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -92,10 +101,16 @@
                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jO8-5M-bd5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="44.5"/>
                                                                 <state key="normal" title="questionThreeUpButton" image="up_half"/>
+                                                                <connections>
+                                                                    <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h7W-M3-eE6"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zoz-QJ-A1J">
                                                                 <rect key="frame" x="0.0" y="44.5" width="50" height="44.5"/>
                                                                 <state key="normal" title="questionThreeDownButton" image="down_half"/>
+                                                                <connections>
+                                                                    <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgu-kF-4Eg"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -118,6 +133,9 @@
                                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qs-5A-9qR">
                                                         <rect key="frame" x="210" y="0.0" width="50" height="89"/>
                                                         <state key="normal" title="questionFourUpButton" image="up_full"/>
+                                                        <connections>
+                                                            <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zbi-8S-wyp"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
