@@ -200,6 +200,7 @@
                         <outlet property="questionOneLabel" destination="LBW-QQ-woc" id="Gpf-d5-qdp"/>
                         <outlet property="questionThreeLabel" destination="g0l-HW-3Ni" id="dq2-la-mku"/>
                         <outlet property="questionTwoLabel" destination="oAF-u3-gym" id="i55-24-HaD"/>
+                        <outlet property="shakeLabel" destination="Yof-ye-oUO" id="IZR-qH-ZYk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
