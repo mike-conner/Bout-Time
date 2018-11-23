@@ -9,7 +9,8 @@
 import Foundation
 
 class MovieList {
-    let movieList: [Movie] = [
+    
+    var movieList: [Movie] = [
         Movie(movieName: "Hercules in New York", yearMovieWasReleased: 1969),
         Movie(movieName: "The Long Goodbye", yearMovieWasReleased: 1973),
         Movie(movieName: "Stay Hungry", yearMovieWasReleased: 1976),
@@ -40,4 +41,10 @@ class MovieList {
         Movie(movieName: "Maggie", yearMovieWasReleased: 2015),
         Movie(movieName: "Aftermath", yearMovieWasReleased: 2017),
         Movie(movieName: "Viy 2: Journey to China", yearMovieWasReleased: 2019)]
+    
+    func shuffleMovieList () {
+        movieList.shuffle()
+    }
+    
+
 }

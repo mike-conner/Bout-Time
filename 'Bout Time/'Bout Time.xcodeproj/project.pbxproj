@@ -134,8 +134,8 @@
 				13EE4E3821A6F767008261F6 /* Assets.xcassets */,
 				13EE4E3D21A6F767008261F6 /* Info.plist */,
 				13C9A7E221A842E0009F0D97 /* View */,
-				13C9A7E121A842CF009F0D97 /* Model */,
 				13C9A7E321A842E8009F0D97 /* Controller */,
+				13C9A7E121A842CF009F0D97 /* Model */,
 			);
 			path = "'Bout Time";
 			sourceTree = "<group>";
