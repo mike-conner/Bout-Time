@@ -160,14 +160,14 @@
                                                     <constraint firstAttribute="height" constant="60" id="ZE0-cw-Caf"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
-                                                <state key="normal" title="1:00">
+                                                <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="nextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfa-ZN-5Bb"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yof-ye-oUO">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yof-ye-oUO">
                                                 <rect key="frame" x="0.0" y="70" width="200" height="20"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -213,10 +213,63 @@
             </objects>
             <point key="canvasLocation" x="63.75" y="32.74647887323944"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Zpu-Kz-U4v">
+            <objects>
+                <viewController id="iqj-kM-9Pq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dJf-co-5fR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="88r-g5-Fe6">
+                                <rect key="frame" x="100" y="215.5" width="120" height="137"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="Cqs-PM-BmO">
+                                        <rect key="frame" x="18.5" y="0.0" width="83.5" height="74"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNM-g0-gmH">
+                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.18306960480000001" green="0.8940319229" blue="0.98151967009999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6/6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEd-CN-chu">
+                                                <rect key="frame" x="0.0" y="15.5" width="83.5" height="58.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbv-P4-FGC">
+                                        <rect key="frame" x="0.0" y="97" width="120" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="R4s-uH-hA2"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="play_again"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.035698752850294113" green="0.10265574604272842" blue="0.2462652325630188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="88r-g5-Fe6" firstAttribute="centerY" secondItem="dJf-co-5fR" secondAttribute="centerY" id="3ay-PV-Lhk"/>
+                            <constraint firstItem="nVP-9m-2bB" firstAttribute="trailing" secondItem="88r-g5-Fe6" secondAttribute="trailing" constant="100" id="Dp3-8Z-hY4"/>
+                            <constraint firstItem="88r-g5-Fe6" firstAttribute="leading" secondItem="nVP-9m-2bB" secondAttribute="leading" constant="100" id="gl8-E4-u9N"/>
+                            <constraint firstItem="88r-g5-Fe6" firstAttribute="centerX" secondItem="dJf-co-5fR" secondAttribute="centerX" id="xPR-Nq-nYa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nVP-9m-2bB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yyC-Br-wjb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800.625" y="32.74647887323944"/>
+        </scene>
     </scenes>
     <resources>
         <image name="down_full" width="158" height="457"/>
         <image name="down_half" width="158" height="229"/>
+        <image name="play_again" width="450" height="142"/>
         <image name="up_full" width="158" height="457"/>
         <image name="up_half" width="158" height="229"/>
     </resources>

@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     // Create Project Variables
     let movieList = MovieList()
     var timer: Timer!
-    var timerMaxTime: Int = 60
+    var roundTime: Int = 10
+    var gameStatus: Bool = true
     
     
     // MARK: - Outlets
@@ -61,14 +62,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextRound(_ sender: Any) {
-        if movieList.boutTimeRound <= movieList.maxBoutTimeRounds {
+        if gameStatus == true {
             startTimer()
             timerButton.isEnabled = false
             timerButton.setBackgroundImage(nil, for: .normal)
             updateMovieRound()
-        } else {
-            print("done")
-            movieList.resetGame(movieList: movieList)
         }
     }
     
@@ -89,6 +87,7 @@ class ViewController: UIViewController {
         questionTwoLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
         questionThreeLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
         questionFourLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
+        informationLabel.text = "Shake to complete"
     }
     
     func startTimer() {
@@ -97,17 +96,18 @@ class ViewController: UIViewController {
     
     @objc func updateTime() {
         UIView.setAnimationsEnabled(false)
-        timerButton.setTitle("\(timeFormatted(timerMaxTime))", for: .normal)
-        if timerMaxTime != 0 {
-            timerMaxTime -= 1
+        timerButton.setTitle("\(timeFormatted(roundTime))", for: .normal)
+        if roundTime != 0 {
+            roundTime -= 1
         } else {
             endTimer()
+            checkOrderOfMovies()
         }
     }
     
     func endTimer() {
         timer.invalidate()
-        timerMaxTime = 60
+        roundTime = 10
     }
     
     func timeFormatted(_ totalSeconds: Int) -> String {
@@ -118,18 +118,28 @@ class ViewController: UIViewController {
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            endTimer()
-            if movieList.checkOrderOfMovies(movieList: movieList) {
-                timerButton.setTitle("", for: .normal)
-                timerButton.setBackgroundImage(UIImage(named: "next_round_success.png"), for: .normal)
-                timerButton.isEnabled = true
-            } else {
-                timerButton.setTitle("", for: .normal)
-                timerButton.setBackgroundImage(UIImage(named: "next_round_fail.png"), for: .normal)
-                timerButton.isEnabled = true
-            }
+            checkOrderOfMovies()
         }
     }
+    
+    func checkOrderOfMovies () {
+        endTimer()
+        timerButton.setTitle("", for: .normal)
+        timerButton.isEnabled = true
+        informationLabel.text = "Tap events to learn more"
+        gameStatus = movieList.boutTimeRound < movieList.maxBoutTimeRounds
+        if gameStatus {
+            if movieList.areTheMoviesInOrder(movieList: movieList) {
+                timerButton.setBackgroundImage(UIImage(named: "next_round_success.png"), for: .normal)
+            } else {
+                timerButton.setBackgroundImage(UIImage(named: "next_round_fail.png"), for: .normal)
+            }
+        } else {
+            timerButton.setBackgroundImage(UIImage(named: "final_score"), for: .normal)
+//            movieList.resetGame(movieList: movieList)
+        }
+    }
+
 }
 
 

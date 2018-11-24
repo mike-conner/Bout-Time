@@ -57,7 +57,7 @@ class MovieList {
         movieArray.shuffle()
     }
     
-    func checkOrderOfMovies (movieList: MovieList) -> Bool {
+    func areTheMoviesInOrder (movieList: MovieList) -> Bool {
         var isTheUserCorrect: Bool = false
         
         if  movieList.movieArray[movieArrayIndex].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased && movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 2].yearMovieWasReleased && movieList.movieArray[movieArrayIndex].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased &&  movieList.movieArray[movieArrayIndex].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased {
