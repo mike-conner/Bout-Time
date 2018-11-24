@@ -57,14 +57,18 @@ class MovieList {
         movieArray.shuffle()
     }
     
-    func checkOrderOfMovies (movieList: MovieList) {
+    func checkOrderOfMovies (movieList: MovieList) -> Bool {
+        var isTheUserCorrect: Bool = false
+        
         if  movieList.movieArray[movieArrayIndex].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased && movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 2].yearMovieWasReleased && movieList.movieArray[movieArrayIndex].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased &&  movieList.movieArray[movieArrayIndex].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased {
             correctRounds += 1
+            isTheUserCorrect = true
         } else {
             incorrectRounds += 1
         }
         movieArrayIndex += 4
         boutTimeRound += 1
+        return isTheUserCorrect
     }
 
     func resetGame(movieList: MovieList) {

@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     // Create Project Variables
     let movieList = MovieList()
+    let timerMaxTime: Int = 60
     
     
     // MARK: - Outlets
@@ -19,7 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionTwoLabel: UILabel!
     @IBOutlet weak var questionThreeLabel: UILabel!
     @IBOutlet weak var questionFourLabel: UILabel!
-    @IBOutlet weak var shakeLabel: UILabel!
+    @IBOutlet weak var informationLabel: UILabel!
+    @IBOutlet weak var timerButton: UIButton!
     
     // MARK: - Load View
     override func viewDidLoad() {
@@ -27,6 +29,8 @@ class ViewController: UIViewController {
         curveLabelCorners()
         movieList.shuffleMovieList()
         updateMovieRound()
+        timerButton.isEnabled = false
+        timerButton.setTitle(String(timerMaxTime), for: .normal)
     }
     
     override func becomeFirstResponder() -> Bool {
@@ -55,6 +59,21 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func nextRound(_ sender: Any) {
+        timerButton.setTitle(String(timerMaxTime), for: .normal)
+        timerButton.setBackgroundImage(nil, for: .normal)
+        timerButton.isEnabled = false
+        
+        if movieList.boutTimeRound <= movieList.maxBoutTimeRounds {
+            updateMovieRound()
+        } else {
+            print("done")
+            movieList.resetGame(movieList: movieList)
+            movieList.shuffleMovieList()
+            updateMovieRound()
+        }
+    }
+    
     func curveLabelCorners() {
         questionOneLabel.clipsToBounds = true
         questionOneLabel.layer.cornerRadius = 3
@@ -77,18 +96,17 @@ class ViewController: UIViewController {
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            movieList.checkOrderOfMovies(movieList: movieList)
-        }
-        if movieList.boutTimeRound <= movieList.maxBoutTimeRounds {
-            updateMovieRound()
-        } else {
-            print("done")
-            movieList.resetGame(movieList: movieList)
-            movieList.shuffleMovieList()
-            updateMovieRound()
+            if movieList.checkOrderOfMovies(movieList: movieList) {
+                timerButton.setTitle("", for: .normal)
+                timerButton.setBackgroundImage(UIImage(named: "next_round_success.png"), for: .normal)
+                timerButton.isEnabled = true
+            } else {
+                timerButton.setTitle("", for: .normal)
+                timerButton.setBackgroundImage(UIImage(named: "next_round_fail.png"), for: .normal)
+                timerButton.isEnabled = true
+            }
         }
     }
-    
 }
 
 
