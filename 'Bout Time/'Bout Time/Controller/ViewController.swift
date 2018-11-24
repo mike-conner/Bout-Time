@@ -12,7 +12,8 @@ class ViewController: UIViewController {
 
     // Create Project Variables
     let movieList = MovieList()
-    let timerMaxTime: Int = 60
+    var timer: Timer!
+    var timerMaxTime: Int = 60
     
     
     // MARK: - Outlets
@@ -28,9 +29,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         curveLabelCorners()
         movieList.shuffleMovieList()
+        startTimer()
         updateMovieRound()
         timerButton.isEnabled = false
-        timerButton.setTitle(String(timerMaxTime), for: .normal)
     }
     
     override func becomeFirstResponder() -> Bool {
@@ -60,17 +61,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextRound(_ sender: Any) {
-        timerButton.setTitle(String(timerMaxTime), for: .normal)
-        timerButton.setBackgroundImage(nil, for: .normal)
-        timerButton.isEnabled = false
-        
         if movieList.boutTimeRound <= movieList.maxBoutTimeRounds {
+            startTimer()
+            timerButton.isEnabled = false
+            timerButton.setBackgroundImage(nil, for: .normal)
             updateMovieRound()
         } else {
             print("done")
             movieList.resetGame(movieList: movieList)
-            movieList.shuffleMovieList()
-            updateMovieRound()
         }
     }
     
@@ -91,11 +89,36 @@ class ViewController: UIViewController {
         questionTwoLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
         questionThreeLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
         questionFourLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
-        print(movieList.boutTimeRound)
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTime() {
+        UIView.setAnimationsEnabled(false)
+        timerButton.setTitle("\(timeFormatted(timerMaxTime))", for: .normal)
+        if timerMaxTime != 0 {
+            timerMaxTime -= 1
+        } else {
+            endTimer()
+        }
+    }
+    
+    func endTimer() {
+        timer.invalidate()
+        timerMaxTime = 60
+    }
+    
+    func timeFormatted(_ totalSeconds: Int) -> String {
+        let seconds: Int = totalSeconds % 60
+        let minutes: Int = (totalSeconds / 60) % 60
+        return String(format: "%01d:%02d", minutes, seconds)
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
+            endTimer()
             if movieList.checkOrderOfMovies(movieList: movieList) {
                 timerButton.setTitle("", for: .normal)
                 timerButton.setBackgroundImage(UIImage(named: "next_round_success.png"), for: .normal)
