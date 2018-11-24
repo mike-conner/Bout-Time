@@ -15,9 +15,8 @@ struct Movie {
 
 class MovieList {
     
-    var movieArrayIndex: Int = 0
-    var boutTimeRound: Int = 1
     let maxBoutTimeRounds: Int = 6
+    var boutTimeRound: Int = 1
     var correctRounds: Int = 0
     var incorrectRounds: Int = 0
     
@@ -57,22 +56,21 @@ class MovieList {
         movieArray.shuffle()
     }
     
-    func areTheMoviesInOrder (movieList: MovieList) -> Bool {
-        var isTheUserCorrect: Bool = false
+    func areTheMoviesInOrder(movieList: MovieList) -> Bool {
+        var isTheUserCorrect = false
         
-        if  movieList.movieArray[movieArrayIndex].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased && movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 2].yearMovieWasReleased && movieList.movieArray[movieArrayIndex].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased &&  movieList.movieArray[movieArrayIndex].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased {
+        if  movieList.movieArray[0].yearMovieWasReleased < movieList.movieArray[1].yearMovieWasReleased && movieList.movieArray[1].yearMovieWasReleased < movieList.movieArray[2].yearMovieWasReleased && movieList.movieArray[2].yearMovieWasReleased < movieList.movieArray[3].yearMovieWasReleased {
             correctRounds += 1
             isTheUserCorrect = true
         } else {
             incorrectRounds += 1
         }
-        movieArrayIndex += 4
+        movieArray.removeFirst(4)
         boutTimeRound += 1
         return isTheUserCorrect
     }
 
     func resetGame(movieList: MovieList) {
-        movieList.movieArrayIndex = 0
         movieList.boutTimeRound = 1
         movieList.correctRounds = 0
         movieList.incorrectRounds = 0

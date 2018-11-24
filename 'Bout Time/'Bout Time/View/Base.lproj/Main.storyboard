@@ -207,22 +207,23 @@
                         <outlet property="questionThreeLabel" destination="g0l-HW-3Ni" id="dq2-la-mku"/>
                         <outlet property="questionTwoLabel" destination="oAF-u3-gym" id="i55-24-HaD"/>
                         <outlet property="timerButton" destination="9RT-ZG-8uI" id="GJN-Hf-OW3"/>
+                        <segue destination="iqj-kM-9Pq" kind="presentation" identifier="mySeque" id="sSf-4l-8G2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="63.75" y="32.74647887323944"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="Zpu-Kz-U4v">
             <objects>
-                <viewController id="iqj-kM-9Pq" sceneMemberID="viewController">
+                <viewController id="iqj-kM-9Pq" customClass="SecondViewController" customModule="_Bout_Time" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dJf-co-5fR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="88r-g5-Fe6">
-                                <rect key="frame" x="100" y="215.5" width="120" height="137"/>
+                                <rect key="frame" x="100" y="210.5" width="120" height="147"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="Cqs-PM-BmO">
                                         <rect key="frame" x="18.5" y="0.0" width="83.5" height="74"/>
@@ -242,11 +243,14 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbv-P4-FGC">
-                                        <rect key="frame" x="0.0" y="97" width="120" height="40"/>
+                                        <rect key="frame" x="0.0" y="97" width="120" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="R4s-uH-hA2"/>
+                                            <constraint firstAttribute="height" constant="50" id="R4s-uH-hA2"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="play_again"/>
+                                        <connections>
+                                            <action selector="playAgain:" destination="iqj-kM-9Pq" eventType="touchUpInside" id="GAe-CW-O9u"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -260,6 +264,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nVP-9m-2bB"/>
                     </view>
+                    <connections>
+                        <outlet property="scoreLabel" destination="kEd-CN-chu" id="va7-pC-elL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyC-Br-wjb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

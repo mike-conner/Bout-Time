@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     // Create Project Variables
     let movieList = MovieList()
     var timer: Timer!
-    var roundTime: Int = 10
+    var roundTime: Int = 60
     var gameStatus: Bool = true
     
     
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
 
     @IBAction func changeMovieLabelLocation(_ sender: UIButton) {
         let button = sender as UIButton
-        
+
         switch button.tag {
         case 1, 2:
             movieList.movieArray[0...1] = [movieList.movieArray[1], movieList.movieArray[0]]
@@ -56,8 +56,7 @@ class ViewController: UIViewController {
             questionThreeLabel.text = movieList.movieArray[2].movieName
             questionFourLabel.text = movieList.movieArray[3].movieName
         default:
-            print("logic error")
-            return
+            fatalError()
         }
     }
     
@@ -67,6 +66,9 @@ class ViewController: UIViewController {
             timerButton.isEnabled = false
             timerButton.setBackgroundImage(nil, for: .normal)
             updateMovieRound()
+        } else {
+            performSegue(withIdentifier: "mySeque", sender: self)
+            movieList.resetGame(movieList: movieList)
         }
     }
     
@@ -82,7 +84,7 @@ class ViewController: UIViewController {
     }
     
     func updateMovieRound() {
-        var temporaryIndexIdentifier = movieList.movieArrayIndex
+        var temporaryIndexIdentifier = 0
         questionOneLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
         questionTwoLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
         questionThreeLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
@@ -107,7 +109,7 @@ class ViewController: UIViewController {
     
     func endTimer() {
         timer.invalidate()
-        roundTime = 10
+        roundTime = 60
     }
     
     func timeFormatted(_ totalSeconds: Int) -> String {
@@ -122,12 +124,18 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let finalScoreVC : SecondViewController = segue.destination as! SecondViewController
+        finalScoreVC.correctRounds = movieList.correctRounds
+    }
+    
     func checkOrderOfMovies () {
         endTimer()
         timerButton.setTitle("", for: .normal)
         timerButton.isEnabled = true
         informationLabel.text = "Tap events to learn more"
         gameStatus = movieList.boutTimeRound < movieList.maxBoutTimeRounds
+        
         if gameStatus {
             if movieList.areTheMoviesInOrder(movieList: movieList) {
                 timerButton.setBackgroundImage(UIImage(named: "next_round_success.png"), for: .normal)
@@ -135,8 +143,8 @@ class ViewController: UIViewController {
                 timerButton.setBackgroundImage(UIImage(named: "next_round_fail.png"), for: .normal)
             }
         } else {
+            let _: Bool  = movieList.areTheMoviesInOrder(movieList: movieList)
             timerButton.setBackgroundImage(UIImage(named: "final_score"), for: .normal)
-//            movieList.resetGame(movieList: movieList)
         }
     }
 
