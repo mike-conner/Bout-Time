@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     // Create Project Variables
-    let movieList = MovieList()
+    var movieList = MovieGame()
     var timer: Timer!
     var roundTime: Int = 15
     var gameStatus: Bool = true
@@ -33,14 +33,13 @@ class ViewController: UIViewController {
     // MARK: - Load View
     override func viewDidLoad() {
         super.viewDidLoad()
-        curveLabelCorners()
         movieList.shuffleMovieList()
         startTimer()
         updateMovieRound()
         timerButton.isEnabled = false
     }
     
-    // MARK: - override functions
+    // MARK: - Override functions
     override func becomeFirstResponder() -> Bool {
         return true
     }
@@ -74,12 +73,6 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateLabel(top: Int, bottom: Int, firstLabel: UILabel, secondLabel: UILabel) {
-        movieList.movieArray[top...bottom] = [movieList.movieArray[bottom], movieList.movieArray[top]]
-        firstLabel.text = movieList.movieArray[top].name
-        secondLabel.text = movieList.movieArray[bottom].name
-    }
-    
     @IBAction func nextRound(_ sender: Any) {
         if gameStatus != true {
             performSegue(withIdentifier: "mySeque", sender: self)
@@ -91,19 +84,6 @@ class ViewController: UIViewController {
         startTimer()
         updateMovieRound()
     }
-    
-    
-    func curveLabelCorners() {
-        questionOneLabel.clipsToBounds = true
-        questionOneLabel.layer.cornerRadius = 3
-        questionTwoLabel.clipsToBounds = true
-        questionTwoLabel.layer.cornerRadius = 3
-        questionThreeLabel.clipsToBounds = true
-        questionThreeLabel.layer.cornerRadius = 3
-        questionFourLabel.clipsToBounds = true
-        questionFourLabel.layer.cornerRadius = 3
-    }
-    
     
     // MARK: - Timer Functionality
     func startTimer() {
@@ -133,7 +113,7 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Functions
-    func updateMovieRound() {
+    func updateMovieRound () {
         var temporaryIndexIdentifier = movieList.currentMovieArrayIndexLocation
         questionOneLabel.text = movieList.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
         questionTwoLabel.text = movieList.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
@@ -178,6 +158,12 @@ class ViewController: UIViewController {
         } else {
             informationLabel.text = "Tap events to learn more"
         }
+    }
+    
+    func updateLabel(top: Int, bottom: Int, firstLabel: UILabel, secondLabel: UILabel) {
+        movieList.movieArray[top...bottom] = [movieList.movieArray[bottom], movieList.movieArray[top]]
+        firstLabel.text = movieList.movieArray[top].name
+        secondLabel.text = movieList.movieArray[bottom].name
     }
 }
 

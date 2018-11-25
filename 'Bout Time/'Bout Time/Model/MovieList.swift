@@ -14,7 +14,7 @@ struct Movie {
     var year: Int
 }
 
-class MovieList {
+class MovieGame {
     let maxRounds: Int = 6
     var currentRound: Int = 1
     var numberOfCorrectRounds: Int = 0
@@ -58,7 +58,7 @@ class MovieList {
         movieArray.shuffle()
     }
     
-    func areTheMoviesInOrder(movieList: MovieList) -> Bool {
+    func areTheMoviesInOrder(movieList: MovieGame) -> Bool {
         var isTheUserCorrect = false
         
         if  movieList.movieArray[currentMovieArrayIndexLocation].year < movieList.movieArray[currentMovieArrayIndexLocation + 1].year && movieList.movieArray[currentMovieArrayIndexLocation + 1].year < movieList.movieArray[currentMovieArrayIndexLocation + 2].year && movieList.movieArray[currentMovieArrayIndexLocation + 2].year < movieList.movieArray[currentMovieArrayIndexLocation + 3].year {
@@ -74,7 +74,7 @@ class MovieList {
     }
 
     // Reset game variables
-    func resetGame(movieList: MovieList) {
+    func resetGame(movieList: MovieGame) {
         movieList.currentRound = 1
         movieList.numberOfCorrectRounds = 0
         movieList.numberOfIncorrectRounds = 0
