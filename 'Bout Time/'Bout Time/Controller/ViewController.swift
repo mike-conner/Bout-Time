@@ -41,27 +41,40 @@ class ViewController: UIViewController {
         timerButton.isEnabled = false
     }
     
+    // MARK: - override functions
     override func becomeFirstResponder() -> Bool {
         return true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let finalScoreVC : SecondViewController = segue.destination as! SecondViewController
+        finalScoreVC.correctRounds = movieList.numberOfCorrectRounds
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            checkOrderOfMovies()
+        }
+    }
 
+    // MARK: - IBActions
     @IBAction func changeMovieLabelLocation(_ sender: UIButton) {
         let button = sender as UIButton
-        let temporaryIndexIdentifier = movieList.movieArrayIndex
+        let temporaryIndexIdentifier = movieList.currentMovieArrayIndexLocation
         
         switch button.tag {
         case 1, 2:
             movieList.movieArray[temporaryIndexIdentifier...(temporaryIndexIdentifier + 1)] = [movieList.movieArray[(temporaryIndexIdentifier + 1)], movieList.movieArray[temporaryIndexIdentifier]]
-            questionOneLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName
-            questionTwoLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 1)].movieName
+            questionOneLabel.text = movieList.movieArray[temporaryIndexIdentifier].name
+            questionTwoLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 1)].name
         case 3, 4:
             movieList.movieArray[(temporaryIndexIdentifier + 1)...(temporaryIndexIdentifier + 2)] = [movieList.movieArray[(temporaryIndexIdentifier + 2)], movieList.movieArray[(temporaryIndexIdentifier + 1)]]
-            questionTwoLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 1)].movieName
-            questionThreeLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 2)].movieName
+            questionTwoLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 1)].name
+            questionThreeLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 2)].name
         case 5, 6:
             movieList.movieArray[(temporaryIndexIdentifier + 2)...(temporaryIndexIdentifier + 3)] = [movieList.movieArray[(temporaryIndexIdentifier + 3)], movieList.movieArray[(temporaryIndexIdentifier + 2)]]
-            questionThreeLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 2)].movieName
-            questionFourLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 3)].movieName
+            questionThreeLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 2)].name
+            questionFourLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 3)].name
         default:
             fatalError()
         }
@@ -79,6 +92,7 @@ class ViewController: UIViewController {
         updateMovieRound()
     }
     
+    
     func curveLabelCorners() {
         questionOneLabel.clipsToBounds = true
         questionOneLabel.layer.cornerRadius = 3
@@ -90,21 +104,8 @@ class ViewController: UIViewController {
         questionFourLabel.layer.cornerRadius = 3
     }
     
-    func updateMovieRound() {
-        var temporaryIndexIdentifier = movieList.movieArrayIndex
-        questionOneLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
-        questionTwoLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
-        questionThreeLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
-        questionFourLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
-        questionOneDownButton.isUserInteractionEnabled = true
-        questionTwoUpButton.isUserInteractionEnabled = true
-        questionTwoDownButton.isUserInteractionEnabled = true
-        questionThreeUpButton.isUserInteractionEnabled = true
-        questionThreeDownButton.isUserInteractionEnabled = true
-        questionFourUpButton.isUserInteractionEnabled = true
-        informationLabel.text = "Shake to complete"
-    }
     
+    // MARK: - Timer Functionality
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
@@ -131,31 +132,23 @@ class ViewController: UIViewController {
         return String(format: "%01d:%02d", minutes, seconds)
     }
     
-    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            checkOrderOfMovies()
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let finalScoreVC : SecondViewController = segue.destination as! SecondViewController
-        finalScoreVC.correctRounds = movieList.correctRounds
+    // MARK: - Functions
+    func updateMovieRound() {
+        var temporaryIndexIdentifier = movieList.currentMovieArrayIndexLocation
+        questionOneLabel.text = movieList.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
+        questionTwoLabel.text = movieList.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
+        questionThreeLabel.text = movieList.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
+        questionFourLabel.text = movieList.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
+        updateUserButtonStatus(isAccessable: true)
     }
     
     func checkOrderOfMovies () {
         endTimer()
         timerButton.setTitle("", for: .normal)
         timerButton.isEnabled = true
-        questionOneDownButton.isUserInteractionEnabled = false
-        questionTwoUpButton.isUserInteractionEnabled = false
-        questionTwoDownButton.isUserInteractionEnabled = false
-        questionThreeUpButton.isUserInteractionEnabled = false
-        questionThreeDownButton.isUserInteractionEnabled = false
-        questionFourUpButton.isUserInteractionEnabled = false
+        updateUserButtonStatus(isAccessable: false)
         
-        informationLabel.text = "Tap events to learn more"
-        
-        gameStatus = movieList.boutTimeRound < movieList.maxBoutTimeRounds
+        gameStatus = movieList.currentRound < movieList.maxRounds
         
         if gameStatus {
             if movieList.areTheMoviesInOrder(movieList: movieList) {
@@ -169,6 +162,21 @@ class ViewController: UIViewController {
             } else {
                 timerButton.setBackgroundImage(UIImage(named: "incorrect_final.png"), for: .normal)
             }
+        }
+    }
+    
+    func updateUserButtonStatus (isAccessable: Bool) {
+        questionOneDownButton.isUserInteractionEnabled = isAccessable
+        questionTwoUpButton.isUserInteractionEnabled = isAccessable
+        questionTwoDownButton.isUserInteractionEnabled = isAccessable
+        questionThreeUpButton.isUserInteractionEnabled = isAccessable
+        questionThreeDownButton.isUserInteractionEnabled = isAccessable
+        questionFourUpButton.isUserInteractionEnabled = isAccessable
+        
+        if isAccessable {
+            informationLabel.text = "Shake to complete"
+        } else {
+            informationLabel.text = "Tap events to learn more"
         }
     }
 }

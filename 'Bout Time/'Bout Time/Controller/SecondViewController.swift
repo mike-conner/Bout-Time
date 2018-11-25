@@ -18,8 +18,6 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         
         scoreLabel.text = "\(correctRounds)/6"
-        
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func playAgain(_ sender: Any) {
