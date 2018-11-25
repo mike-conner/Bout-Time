@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     // Create Project Variables
     var movieGame = MovieGame()
     var timer: Timer!
@@ -33,7 +32,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         movieGame.shufflemovieGame()
-        startTimer()
         updateMovieRound()
         timerButton.isEnabled = false
     }
@@ -80,7 +78,6 @@ class ViewController: UIViewController {
         }
         timerButton.isEnabled = false
         timerButton.setBackgroundImage(nil, for: .normal)
-        startTimer()
         updateMovieRound()
     }
     
@@ -119,6 +116,7 @@ class ViewController: UIViewController {
         questionThreeLabel.text = movieGame.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
         questionFourLabel.text = movieGame.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
         updateUserButtonStatus(isAccessable: true)
+        startTimer()
     }
     
     func checkOrderOfMovies() {
