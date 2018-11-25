@@ -23,6 +23,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionThreeLabel: UILabel!
     @IBOutlet weak var questionFourLabel: UILabel!
     @IBOutlet weak var informationLabel: UILabel!
+    @IBOutlet weak var questionOneDownButton: UIButton!
+    @IBOutlet weak var questionTwoUpButton: UIButton!
+    @IBOutlet weak var questionTwoDownButton: UIButton!
+    @IBOutlet weak var questionThreeUpButton: UIButton!
+    @IBOutlet weak var questionThreeDownButton: UIButton!
+    @IBOutlet weak var questionFourUpButton: UIButton!
     @IBOutlet weak var timerButton: UIButton!
     
     // MARK: - Load View
@@ -67,7 +73,6 @@ class ViewController: UIViewController {
             movieList.resetGame(movieList: movieList)
             movieList.shuffleMovieList()
         }
-        
         timerButton.isEnabled = false
         timerButton.setBackgroundImage(nil, for: .normal)
         startTimer()
@@ -91,6 +96,12 @@ class ViewController: UIViewController {
         questionTwoLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
         questionThreeLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
         questionFourLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
+        questionOneDownButton.isUserInteractionEnabled = true
+        questionTwoUpButton.isUserInteractionEnabled = true
+        questionTwoDownButton.isUserInteractionEnabled = true
+        questionThreeUpButton.isUserInteractionEnabled = true
+        questionThreeDownButton.isUserInteractionEnabled = true
+        questionFourUpButton.isUserInteractionEnabled = true
         informationLabel.text = "Shake to complete"
     }
     
@@ -135,7 +146,15 @@ class ViewController: UIViewController {
         endTimer()
         timerButton.setTitle("", for: .normal)
         timerButton.isEnabled = true
+        questionOneDownButton.isUserInteractionEnabled = false
+        questionTwoUpButton.isUserInteractionEnabled = false
+        questionTwoDownButton.isUserInteractionEnabled = false
+        questionThreeUpButton.isUserInteractionEnabled = false
+        questionThreeDownButton.isUserInteractionEnabled = false
+        questionFourUpButton.isUserInteractionEnabled = false
+        
         informationLabel.text = "Tap events to learn more"
+        
         gameStatus = movieList.boutTimeRound < movieList.maxBoutTimeRounds
         
         if gameStatus {

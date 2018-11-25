@@ -203,9 +203,15 @@
                     <connections>
                         <outlet property="informationLabel" destination="Yof-ye-oUO" id="AcZ-CJ-CcD"/>
                         <outlet property="questionFourLabel" destination="vRp-cu-f5w" id="PKN-XK-ZEd"/>
+                        <outlet property="questionFourUpButton" destination="6qs-5A-9qR" id="VNx-jv-UPc"/>
+                        <outlet property="questionOneDownButton" destination="lC1-gh-dL2" id="B86-EH-5SL"/>
                         <outlet property="questionOneLabel" destination="LBW-QQ-woc" id="Gpf-d5-qdp"/>
+                        <outlet property="questionThreeDownButton" destination="Zoz-QJ-A1J" id="Icu-gk-SSI"/>
                         <outlet property="questionThreeLabel" destination="g0l-HW-3Ni" id="dq2-la-mku"/>
+                        <outlet property="questionThreeUpButton" destination="jO8-5M-bd5" id="Y5G-1y-WeU"/>
+                        <outlet property="questionTwoDownButton" destination="rzZ-Ji-Xzq" id="QrT-gL-UoL"/>
                         <outlet property="questionTwoLabel" destination="oAF-u3-gym" id="i55-24-HaD"/>
+                        <outlet property="questionTwoUpButton" destination="xUB-cb-pIz" id="DIh-zt-ICP"/>
                         <outlet property="timerButton" destination="9RT-ZG-8uI" id="GJN-Hf-OW3"/>
                         <segue destination="iqj-kM-9Pq" kind="presentation" identifier="mySeque" id="sSf-4l-8G2"/>
                     </connections>
