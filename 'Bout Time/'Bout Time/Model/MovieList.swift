@@ -19,6 +19,7 @@ class MovieList {
     var boutTimeRound: Int = 1
     var correctRounds: Int = 0
     var incorrectRounds: Int = 0
+    var movieArrayIndex: Int = 0
     
     var movieArray: [Movie] = [
         Movie(movieName: "Hercules in New York", yearMovieWasReleased: 1969),
@@ -59,13 +60,13 @@ class MovieList {
     func areTheMoviesInOrder(movieList: MovieList) -> Bool {
         var isTheUserCorrect = false
         
-        if  movieList.movieArray[0].yearMovieWasReleased < movieList.movieArray[1].yearMovieWasReleased && movieList.movieArray[1].yearMovieWasReleased < movieList.movieArray[2].yearMovieWasReleased && movieList.movieArray[2].yearMovieWasReleased < movieList.movieArray[3].yearMovieWasReleased {
+        if  movieList.movieArray[movieArrayIndex].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased && movieList.movieArray[movieArrayIndex + 1].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 2].yearMovieWasReleased && movieList.movieArray[movieArrayIndex + 2].yearMovieWasReleased < movieList.movieArray[movieArrayIndex + 3].yearMovieWasReleased {
             correctRounds += 1
             isTheUserCorrect = true
         } else {
             incorrectRounds += 1
         }
-        movieArray.removeFirst(4)
+        movieArrayIndex += 4
         boutTimeRound += 1
         return isTheUserCorrect
     }
@@ -74,5 +75,6 @@ class MovieList {
         movieList.boutTimeRound = 1
         movieList.correctRounds = 0
         movieList.incorrectRounds = 0
+        movieArrayIndex = 0
     }
 }

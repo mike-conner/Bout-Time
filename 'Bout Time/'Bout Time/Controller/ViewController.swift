@@ -41,35 +41,37 @@ class ViewController: UIViewController {
 
     @IBAction func changeMovieLabelLocation(_ sender: UIButton) {
         let button = sender as UIButton
-
+        let temporaryIndexIdentifier = movieList.movieArrayIndex
+        
         switch button.tag {
         case 1, 2:
-            movieList.movieArray[0...1] = [movieList.movieArray[1], movieList.movieArray[0]]
-            questionOneLabel.text = movieList.movieArray[0].movieName
-            questionTwoLabel.text = movieList.movieArray[1].movieName
+            movieList.movieArray[temporaryIndexIdentifier...(temporaryIndexIdentifier + 1)] = [movieList.movieArray[(temporaryIndexIdentifier + 1)], movieList.movieArray[temporaryIndexIdentifier]]
+            questionOneLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName
+            questionTwoLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 1)].movieName
         case 3, 4:
-            movieList.movieArray[1...2] = [movieList.movieArray[2], movieList.movieArray[1]]
-            questionTwoLabel.text = movieList.movieArray[1].movieName
-            questionThreeLabel.text = movieList.movieArray[2].movieName
+            movieList.movieArray[(temporaryIndexIdentifier + 1)...(temporaryIndexIdentifier + 2)] = [movieList.movieArray[(temporaryIndexIdentifier + 2)], movieList.movieArray[(temporaryIndexIdentifier + 1)]]
+            questionTwoLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 1)].movieName
+            questionThreeLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 2)].movieName
         case 5, 6:
-            movieList.movieArray[2...3] = [movieList.movieArray[3], movieList.movieArray[2]]
-            questionThreeLabel.text = movieList.movieArray[2].movieName
-            questionFourLabel.text = movieList.movieArray[3].movieName
+            movieList.movieArray[(temporaryIndexIdentifier + 2)...(temporaryIndexIdentifier + 3)] = [movieList.movieArray[(temporaryIndexIdentifier + 3)], movieList.movieArray[(temporaryIndexIdentifier + 2)]]
+            questionThreeLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 2)].movieName
+            questionFourLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 3)].movieName
         default:
             fatalError()
         }
     }
     
     @IBAction func nextRound(_ sender: Any) {
-        if gameStatus == true {
-            startTimer()
-            timerButton.isEnabled = false
-            timerButton.setBackgroundImage(nil, for: .normal)
-            updateMovieRound()
-        } else {
+        if gameStatus != true {
             performSegue(withIdentifier: "mySeque", sender: self)
             movieList.resetGame(movieList: movieList)
+            movieList.shuffleMovieList()
         }
+        
+        timerButton.isEnabled = false
+        timerButton.setBackgroundImage(nil, for: .normal)
+        startTimer()
+        updateMovieRound()
     }
     
     func curveLabelCorners() {
@@ -84,7 +86,7 @@ class ViewController: UIViewController {
     }
     
     func updateMovieRound() {
-        var temporaryIndexIdentifier = 0
+        var temporaryIndexIdentifier = movieList.movieArrayIndex
         questionOneLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
         questionTwoLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
         questionThreeLabel.text = movieList.movieArray[temporaryIndexIdentifier].movieName; temporaryIndexIdentifier += 1
@@ -143,11 +145,13 @@ class ViewController: UIViewController {
                 timerButton.setBackgroundImage(UIImage(named: "next_round_fail.png"), for: .normal)
             }
         } else {
-            let _: Bool  = movieList.areTheMoviesInOrder(movieList: movieList)
-            timerButton.setBackgroundImage(UIImage(named: "final_score"), for: .normal)
+            if movieList.areTheMoviesInOrder(movieList: movieList) {
+                timerButton.setBackgroundImage(UIImage(named: "correct_final.png"), for: .normal)
+            } else {
+                timerButton.setBackgroundImage(UIImage(named: "incorrect_final.png"), for: .normal)
+            }
         }
     }
-
 }
 
 
