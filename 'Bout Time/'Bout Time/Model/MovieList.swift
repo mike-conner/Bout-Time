@@ -20,6 +20,7 @@ class MovieGame {
     var numberOfCorrectRounds: Int = 0
     var numberOfIncorrectRounds: Int = 0
     var currentMovieArrayIndexLocation: Int = 0
+    var gameStatus: Bool = true
     
     var movieArray: [Movie] = [
         Movie(name: "Hercules in New York", year: 1969),
@@ -54,14 +55,14 @@ class MovieGame {
         Movie(name: "Viy 2: Journey to China", year: 2019)]
     
     // Function to shuffle the order of movies in the game.
-    func shuffleMovieList () {
+    func shufflemovieGame () {
         movieArray.shuffle()
     }
     
-    func areTheMoviesInOrder(movieList: MovieGame) -> Bool {
+    func areTheMoviesInOrder(movieGame: MovieGame) -> Bool {
         var isTheUserCorrect = false
         
-        if  movieList.movieArray[currentMovieArrayIndexLocation].year < movieList.movieArray[currentMovieArrayIndexLocation + 1].year && movieList.movieArray[currentMovieArrayIndexLocation + 1].year < movieList.movieArray[currentMovieArrayIndexLocation + 2].year && movieList.movieArray[currentMovieArrayIndexLocation + 2].year < movieList.movieArray[currentMovieArrayIndexLocation + 3].year {
+        if  movieGame.movieArray[currentMovieArrayIndexLocation].year < movieGame.movieArray[currentMovieArrayIndexLocation + 1].year && movieGame.movieArray[currentMovieArrayIndexLocation + 1].year < movieGame.movieArray[currentMovieArrayIndexLocation + 2].year && movieGame.movieArray[currentMovieArrayIndexLocation + 2].year < movieGame.movieArray[currentMovieArrayIndexLocation + 3].year {
             numberOfCorrectRounds += 1
             isTheUserCorrect = true
         } else {
@@ -74,10 +75,10 @@ class MovieGame {
     }
 
     // Reset game variables
-    func resetGame(movieList: MovieGame) {
-        movieList.currentRound = 1
-        movieList.numberOfCorrectRounds = 0
-        movieList.numberOfIncorrectRounds = 0
-        movieList.currentMovieArrayIndexLocation = 0
+    func resetGame(movieGame: MovieGame) {
+        movieGame.currentRound = 1
+        movieGame.numberOfCorrectRounds = 0
+        movieGame.numberOfIncorrectRounds = 0
+        movieGame.currentMovieArrayIndexLocation = 0
     }
 }

@@ -11,11 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
     // Create Project Variables
-    var movieList = MovieGame()
+    var movieGame = MovieGame()
     var timer: Timer!
-    var roundTime: Int = 15
-    var gameStatus: Bool = true
-    
+    var roundTime: Int = 60
+
     // MARK: - Outlets
     @IBOutlet weak var questionOneLabel: UILabel!
     @IBOutlet weak var questionTwoLabel: UILabel!
@@ -33,7 +32,7 @@ class ViewController: UIViewController {
     // MARK: - Load View
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieList.shuffleMovieList()
+        movieGame.shufflemovieGame()
         startTimer()
         updateMovieRound()
         timerButton.isEnabled = false
@@ -46,7 +45,7 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let finalScoreVC : SecondViewController = segue.destination as! SecondViewController
-        finalScoreVC.correctRounds = movieList.numberOfCorrectRounds
+        finalScoreVC.correctRounds = movieGame.numberOfCorrectRounds
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
@@ -58,7 +57,7 @@ class ViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func changeMovieLabelLocation(_ sender: UIButton) {
         let button = sender as UIButton
-        let temporaryIndexIdentifier = movieList.currentMovieArrayIndexLocation
+        let temporaryIndexIdentifier = movieGame.currentMovieArrayIndexLocation
         
         switch button.tag {
         case 1, 2:
@@ -74,10 +73,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextRound(_ sender: Any) {
-        if gameStatus != true {
+        if movieGame.gameStatus != true {
             performSegue(withIdentifier: "mySeque", sender: self)
-            movieList.resetGame(movieList: movieList)
-            movieList.shuffleMovieList()
+            movieGame.resetGame(movieGame: movieGame)
+            movieGame.shufflemovieGame()
         }
         timerButton.isEnabled = false
         timerButton.setBackgroundImage(nil, for: .normal)
@@ -113,31 +112,31 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Functions
-    func updateMovieRound () {
-        var temporaryIndexIdentifier = movieList.currentMovieArrayIndexLocation
-        questionOneLabel.text = movieList.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
-        questionTwoLabel.text = movieList.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
-        questionThreeLabel.text = movieList.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
-        questionFourLabel.text = movieList.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
+    func updateMovieRound() {
+        var temporaryIndexIdentifier = movieGame.currentMovieArrayIndexLocation
+        questionOneLabel.text = movieGame.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
+        questionTwoLabel.text = movieGame.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
+        questionThreeLabel.text = movieGame.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
+        questionFourLabel.text = movieGame.movieArray[temporaryIndexIdentifier].name; temporaryIndexIdentifier += 1
         updateUserButtonStatus(isAccessable: true)
     }
     
-    func checkOrderOfMovies () {
+    func checkOrderOfMovies() {
         endTimer()
         timerButton.setTitle("", for: .normal)
         timerButton.isEnabled = true
         updateUserButtonStatus(isAccessable: false)
         
-        gameStatus = movieList.currentRound < movieList.maxRounds
+        movieGame.gameStatus = movieGame.currentRound < movieGame.maxRounds
         
-        if gameStatus {
-            if movieList.areTheMoviesInOrder(movieList: movieList) {
+        if movieGame.gameStatus {
+            if movieGame.areTheMoviesInOrder(movieGame: movieGame) {
                 timerButton.setBackgroundImage(UIImage(named: "next_round_success.png"), for: .normal)
             } else {
                 timerButton.setBackgroundImage(UIImage(named: "next_round_fail.png"), for: .normal)
             }
         } else {
-            if movieList.areTheMoviesInOrder(movieList: movieList) {
+            if movieGame.areTheMoviesInOrder(movieGame: movieGame) {
                 timerButton.setBackgroundImage(UIImage(named: "correct_final.png"), for: .normal)
             } else {
                 timerButton.setBackgroundImage(UIImage(named: "incorrect_final.png"), for: .normal)
@@ -145,7 +144,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateUserButtonStatus (isAccessable: Bool) {
+    func updateUserButtonStatus(isAccessable: Bool) {
         questionOneDownButton.isUserInteractionEnabled = isAccessable
         questionTwoUpButton.isUserInteractionEnabled = isAccessable
         questionTwoDownButton.isUserInteractionEnabled = isAccessable
@@ -161,9 +160,9 @@ class ViewController: UIViewController {
     }
     
     func updateLabel(top: Int, bottom: Int, firstLabel: UILabel, secondLabel: UILabel) {
-        movieList.movieArray[top...bottom] = [movieList.movieArray[bottom], movieList.movieArray[top]]
-        firstLabel.text = movieList.movieArray[top].name
-        secondLabel.text = movieList.movieArray[bottom].name
+        movieGame.movieArray[top...bottom] = [movieGame.movieArray[bottom], movieGame.movieArray[top]]
+        firstLabel.text = movieGame.movieArray[top].name
+        secondLabel.text = movieGame.movieArray[bottom].name
     }
 }
 
