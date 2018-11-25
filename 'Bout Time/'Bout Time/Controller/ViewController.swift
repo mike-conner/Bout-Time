@@ -13,9 +13,8 @@ class ViewController: UIViewController {
     // Create Project Variables
     let movieList = MovieList()
     var timer: Timer!
-    var roundTime: Int = 60
+    var roundTime: Int = 15
     var gameStatus: Bool = true
-    
     
     // MARK: - Outlets
     @IBOutlet weak var questionOneLabel: UILabel!
@@ -64,20 +63,21 @@ class ViewController: UIViewController {
         
         switch button.tag {
         case 1, 2:
-            movieList.movieArray[temporaryIndexIdentifier...(temporaryIndexIdentifier + 1)] = [movieList.movieArray[(temporaryIndexIdentifier + 1)], movieList.movieArray[temporaryIndexIdentifier]]
-            questionOneLabel.text = movieList.movieArray[temporaryIndexIdentifier].name
-            questionTwoLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 1)].name
+            updateLabel(top: temporaryIndexIdentifier, bottom: temporaryIndexIdentifier + 1, firstLabel: questionOneLabel, secondLabel: questionTwoLabel)
         case 3, 4:
-            movieList.movieArray[(temporaryIndexIdentifier + 1)...(temporaryIndexIdentifier + 2)] = [movieList.movieArray[(temporaryIndexIdentifier + 2)], movieList.movieArray[(temporaryIndexIdentifier + 1)]]
-            questionTwoLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 1)].name
-            questionThreeLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 2)].name
+            updateLabel(top: temporaryIndexIdentifier + 1, bottom: temporaryIndexIdentifier + 2, firstLabel: questionTwoLabel, secondLabel: questionThreeLabel)
         case 5, 6:
-            movieList.movieArray[(temporaryIndexIdentifier + 2)...(temporaryIndexIdentifier + 3)] = [movieList.movieArray[(temporaryIndexIdentifier + 3)], movieList.movieArray[(temporaryIndexIdentifier + 2)]]
-            questionThreeLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 2)].name
-            questionFourLabel.text = movieList.movieArray[(temporaryIndexIdentifier + 3)].name
+            updateLabel(top: temporaryIndexIdentifier + 2, bottom: temporaryIndexIdentifier + 3, firstLabel: questionThreeLabel, secondLabel: questionFourLabel)
         default:
-            fatalError()
+            // Default condition not possible.
+            break
         }
+    }
+    
+    func updateLabel(top: Int, bottom: Int, firstLabel: UILabel, secondLabel: UILabel) {
+        movieList.movieArray[top...bottom] = [movieList.movieArray[bottom], movieList.movieArray[top]]
+        firstLabel.text = movieList.movieArray[top].name
+        secondLabel.text = movieList.movieArray[bottom].name
     }
     
     @IBAction func nextRound(_ sender: Any) {
