@@ -46,7 +46,7 @@
 		13EE4E3621A6F767008261F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13EE4E3821A6F767008261F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13EE4E3B21A6F767008261F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		13EE4E3D21A6F767008261F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		13EE4E3D21A6F767008261F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13EE4E4221A6F767008261F6 /* 'Bout TimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "'Bout TimeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13EE4E4621A6F767008261F6 /* _Bout_TimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _Bout_TimeTests.swift; sourceTree = "<group>"; };
 		13EE4E4821A6F767008261F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
