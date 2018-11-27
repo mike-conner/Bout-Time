@@ -75,10 +75,17 @@ class ViewController: UIViewController {
             performSegue(withIdentifier: "mySeque", sender: self)
             movieGame.resetGame(movieGame: movieGame)
             movieGame.shufflemovieGame()
-        }
+            timerButton.setBackgroundImage(UIImage(named: "play_again.png"), for: .normal)
+            questionOneLabel.text = "Want"
+            questionTwoLabel.text = "to"
+            questionThreeLabel.text = "try"
+            questionFourLabel.text = "again?"
+            informationLabel.text = ""
+        } else {
         timerButton.isEnabled = false
         timerButton.setBackgroundImage(nil, for: .normal)
         updateMovieRound()
+        }
     }
     
     // MARK: - Timer Functionality

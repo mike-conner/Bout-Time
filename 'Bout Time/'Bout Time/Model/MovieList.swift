@@ -80,5 +80,6 @@ class MovieGame {
         movieGame.numberOfCorrectRounds = 0
         movieGame.numberOfIncorrectRounds = 0
         movieGame.currentMovieArrayIndexLocation = 0
+        movieGame.gameStatus = true
     }
 }

@@ -16,7 +16,6 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         scoreLabel.text = "\(correctRounds)/6"
     }
     
