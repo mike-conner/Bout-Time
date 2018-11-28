@@ -42,7 +42,9 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let finalScoreVC : SecondViewController = segue.destination as! SecondViewController
+        guard let finalScoreVC : SecondViewController = segue.destination as? SecondViewController else {
+            return
+        }
         finalScoreVC.correctRounds = movieGame.numberOfCorrectRounds
     }
     
@@ -54,10 +56,10 @@ class ViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction func changeMovieLabelLocation(_ sender: UIButton) {
-        let button = sender as UIButton
+//        let button = sender as UIButton
         let temporaryIndexIdentifier = movieGame.currentMovieArrayIndexLocation
         
-        switch button.tag {
+        switch sender.tag {
         case 1, 2:
             updateLabel(top: temporaryIndexIdentifier, bottom: temporaryIndexIdentifier + 1, firstLabel: questionOneLabel, secondLabel: questionTwoLabel)
         case 3, 4:
@@ -73,7 +75,7 @@ class ViewController: UIViewController {
     @IBAction func nextRound(_ sender: Any) {
         if movieGame.gameStatus != true {
             performSegue(withIdentifier: "mySeque", sender: self)
-            movieGame.resetGame(movieGame: movieGame)
+            movieGame.resetGame()
             movieGame.shufflemovieGame()
         }
         timerButton.isEnabled = false
@@ -128,13 +130,13 @@ class ViewController: UIViewController {
         movieGame.gameStatus = movieGame.currentRound < movieGame.maxRounds
         
         if movieGame.gameStatus {
-            if movieGame.areTheMoviesInOrder(movieGame: movieGame) {
+            if movieGame.areTheMoviesInOrder() {
                 timerButton.setBackgroundImage(UIImage(named: "next_round_success.png"), for: .normal)
             } else {
                 timerButton.setBackgroundImage(UIImage(named: "next_round_fail.png"), for: .normal)
             }
         } else {
-            if movieGame.areTheMoviesInOrder(movieGame: movieGame) {
+            if movieGame.areTheMoviesInOrder() {
                 timerButton.setBackgroundImage(UIImage(named: "correct_final.png"), for: .normal)
             } else {
                 timerButton.setBackgroundImage(UIImage(named: "incorrect_final.png"), for: .normal)

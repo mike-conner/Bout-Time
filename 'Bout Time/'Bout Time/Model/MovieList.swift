@@ -59,10 +59,10 @@ class MovieGame {
         movieArray.shuffle()
     }
     
-    func areTheMoviesInOrder(movieGame: MovieGame) -> Bool {
+    func areTheMoviesInOrder() -> Bool {
         var isTheUserCorrect = false
         
-        if  movieGame.movieArray[currentMovieArrayIndexLocation].year < movieGame.movieArray[currentMovieArrayIndexLocation + 1].year && movieGame.movieArray[currentMovieArrayIndexLocation + 1].year < movieGame.movieArray[currentMovieArrayIndexLocation + 2].year && movieGame.movieArray[currentMovieArrayIndexLocation + 2].year < movieGame.movieArray[currentMovieArrayIndexLocation + 3].year {
+        if  self.movieArray[currentMovieArrayIndexLocation].year < self.movieArray[currentMovieArrayIndexLocation + 1].year && self.movieArray[currentMovieArrayIndexLocation + 1].year < self.movieArray[currentMovieArrayIndexLocation + 2].year && self.movieArray[currentMovieArrayIndexLocation + 2].year < self.movieArray[currentMovieArrayIndexLocation + 3].year {
             numberOfCorrectRounds += 1
             isTheUserCorrect = true
         } else {
@@ -75,10 +75,10 @@ class MovieGame {
     }
 
     // Reset game variables
-    func resetGame(movieGame: MovieGame) {
-        movieGame.currentRound = 1
-        movieGame.numberOfCorrectRounds = 0
-        movieGame.numberOfIncorrectRounds = 0
-        movieGame.currentMovieArrayIndexLocation = 0
+    func resetGame() {
+        self.currentRound = 1
+        self.numberOfCorrectRounds = 0
+        self.numberOfIncorrectRounds = 0
+        self.currentMovieArrayIndexLocation = 0
     }
 }
