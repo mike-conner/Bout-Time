@@ -22,13 +22,13 @@
                                 <rect key="frame" x="30" y="50" width="260" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dh2-NG-EoY">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="351"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="331"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="mdv-a5-1cb">
-                                                <rect key="frame" x="0.0" y="0.0" width="260" height="84"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="260" height="79"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="questionOneLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBW-QQ-woc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="213" height="84"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="213" height="79"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -41,7 +41,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lC1-gh-dL2">
-                                                        <rect key="frame" x="210" y="0.0" width="50" height="84"/>
+                                                        <rect key="frame" x="210" y="0.0" width="50" height="79"/>
                                                         <state key="normal" title="questionOneDownButton" image="down_full"/>
                                                         <connections>
                                                             <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Swr-FQ-NSl"/>
@@ -50,10 +50,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="H1F-Iy-Xr4">
-                                                <rect key="frame" x="0.0" y="89" width="260" height="84"/>
+                                                <rect key="frame" x="0.0" y="84" width="260" height="79"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="questionTwoLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAF-u3-gym">
-                                                        <rect key="frame" x="0.0" y="0.0" width="213" height="84"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="213" height="79"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -66,17 +66,17 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ftw-HY-fVC">
-                                                        <rect key="frame" x="210" y="0.0" width="50" height="84"/>
+                                                        <rect key="frame" x="210" y="0.0" width="50" height="79"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUB-cb-pIz">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="42"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="39.5"/>
                                                                 <state key="normal" title="questionTwoUpButton" image="up_half"/>
                                                                 <connections>
                                                                     <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8cu-Ef-mKn"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzZ-Ji-Xzq">
-                                                                <rect key="frame" x="0.0" y="42" width="50" height="42"/>
+                                                                <rect key="frame" x="0.0" y="39.5" width="50" height="39.5"/>
                                                                 <state key="normal" title="questionTwoDownButton" image="down_half"/>
                                                                 <connections>
                                                                     <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KB2-FK-VBP"/>
@@ -90,10 +90,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="QQS-8b-ENd">
-                                                <rect key="frame" x="0.0" y="178" width="260" height="84"/>
+                                                <rect key="frame" x="0.0" y="168" width="260" height="79"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="questionThreeLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0l-HW-3Ni">
-                                                        <rect key="frame" x="0.0" y="0.0" width="213" height="84"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="213" height="79"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -106,17 +106,17 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lFX-4p-xgO">
-                                                        <rect key="frame" x="210" y="0.0" width="50" height="84"/>
+                                                        <rect key="frame" x="210" y="0.0" width="50" height="79"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jO8-5M-bd5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="42"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="39.5"/>
                                                                 <state key="normal" title="questionThreeUpButton" image="up_half"/>
                                                                 <connections>
                                                                     <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h7W-M3-eE6"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zoz-QJ-A1J">
-                                                                <rect key="frame" x="0.0" y="42" width="50" height="42"/>
+                                                                <rect key="frame" x="0.0" y="39.5" width="50" height="39.5"/>
                                                                 <state key="normal" title="questionThreeDownButton" image="down_half"/>
                                                                 <connections>
                                                                     <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgu-kF-4Eg"/>
@@ -130,10 +130,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="mBB-LX-gKe">
-                                                <rect key="frame" x="0.0" y="267" width="260" height="84"/>
+                                                <rect key="frame" x="0.0" y="252" width="260" height="79"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="questionFourLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRp-cu-f5w">
-                                                        <rect key="frame" x="0.0" y="0.0" width="213" height="84"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="213" height="79"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -146,7 +146,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qs-5A-9qR">
-                                                        <rect key="frame" x="210" y="0.0" width="50" height="84"/>
+                                                        <rect key="frame" x="210" y="0.0" width="50" height="79"/>
                                                         <state key="normal" title="questionFourUpButton" image="up_full"/>
                                                         <connections>
                                                             <action selector="changeMovieLabelLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zbi-8S-wyp"/>
@@ -167,7 +167,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gvr-1m-zFI">
-                                        <rect key="frame" x="30" y="388" width="200" height="90"/>
+                                        <rect key="frame" x="30" y="368" width="200" height="110"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9RT-ZG-8uI">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="60"/>
@@ -182,14 +182,14 @@
                                                     <action selector="nextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfa-ZN-5Bb"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yof-ye-oUO">
-                                                <rect key="frame" x="0.0" y="70" width="200" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to complete" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yof-ye-oUO">
+                                                <rect key="frame" x="0.0" y="70" width="200" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="YiK-O1-79c"/>
+                                                    <constraint firstAttribute="height" constant="40" id="YiK-O1-79c"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.18306960483555323" green="0.89403192286381283" blue="0.98151967005076146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>

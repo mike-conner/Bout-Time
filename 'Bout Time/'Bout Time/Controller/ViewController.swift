@@ -155,7 +155,7 @@ class ViewController: UIViewController {
         if isAccessable {
             informationLabel.text = "Shake to complete"
         } else {
-            informationLabel.text = "Tap events to learn more"
+            informationLabel.text = "Tap events to learn more is currently not functional!"
         }
     }
     
